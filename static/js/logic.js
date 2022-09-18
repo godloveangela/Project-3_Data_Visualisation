@@ -86,10 +86,11 @@ d3.json('https://paleobiodb.org/data1.2/specs/list.json?datainfo&rowcount&base_n
   
       marker.bindPopup(`
                       <p>type: ${type}-${item.gnl ?? 'unspecified'}</p>
-                      <p>eag: ${item.eag}</p>
-                      <p>lat: ${item.lat}</p>
-                      <p>lng: ${item.lng}</p>`
-                      )
+                      <p>earliest-appearance: ${item.eag}</p>
+                      <p>latest-appearance: ${item.lag}</p>
+                      <p>latitute: ${item.lat}</p>
+                      <p>longtide: ${item.lng}</p>
+                      `)
         
       if (!dinosarurTypeArr.includes(item.idn)) dinosarurTypeArr.push(item.idn)
     })
