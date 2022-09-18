@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Page</title>
+    <link href="../static/css/common.css" rel="stylesheet" type="text/css"/>
+    <script src="../static/js/jquery.js" type="text/javascript"></script>
+    <script src="../static/js/common.js"></script>
+</head>
+<body>
+    <header>
+        <div onclick="redirect('/')">Index</div>
+        <div onclick="redirect('/dashboard')">Dashboard</div>
+        <div class="active" onclick="redirect('/data')">Data</div>
+    </header>
+<br class="clearBoth"/>
+<div class="mainPage">
+    <div class="data">
+        <div class="search">
+            idn: <input type="text" id="keyword" name="keyword"/>
+            <button type="button" id="searchBtn">Search</button>
+        </div>
+        <table id="test">
+            <thead>
+            <tr>
+                <td>index</td>
+                <td>idn</td>
+                <td>eag</td>
+                <td>lag</td>
+                <td>phl</td>
+                <td>cll</td>
+                <td>odl</td>
+                <td>fml</td>
+                <td>gnl</td>
+                <td>lng</td>
+                <td>lat</td>
+            </tr>
+            </thead>
+            <tbody class="data-list">
+            </tbody>
+        </table>
+    </div>
+</div>
+<br class="clearBoth"/>
+<div class="mainFooter">
+    <hr/>
+{#    <div>I am here</div>#}
+</div>
+<script>
+    $(document).ready(function () {
+        $("#searchBtn").click();
+    });
+
+    $("#searchBtn").click(function () {
+        let keyword = $("#keyword").val();
+        let param = {
+            'keyword': keyword
+        }
+
+        $.ajax({                 //request for route to the back end
+            url: "/data/search",
+            type: 'get',
+            data: param,
+            success: function (result) {
+                console.log(result);
+
+                let dataObj = JSON.parse(result) //transfer back to JSON obeject
+
+                let data_list = $(".data-list");
+                data_list.empty();
+
+                for (let i = 0; i < dataObj.data.length; i++) {
+                    let obj = dataObj.data[i];
+                    let html = '<tr>' +
+                        '<td>' + obj.index + '</td>' +
+                        '<td>' + obj.idn + '</td>' +
+                        '<td>' + obj.eag + '</td>' +
+                        '<td>' + obj.lag + '</td>' +
+                        '<td>' + obj.phl + '</td>' +
+                        '<td>' + obj.cll + '</td>' +
+                        '<td>' + obj.odl + '</td>' +
+                        '<td>' + obj.fml + '</td>' +
+                        '<td>' + obj.gnl + '</td>' +
+                        '<td>' + obj.lng + '</td>' +
+                        '<td>' + obj.lat + '</td>' +
+                        '</tr>';
+                    data_list.append(html);
+                }
+            }
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard Page</title>
+    <link href="../static/css/common.css" rel="stylesheet" type="text/css"/>
+    <script src="../static/js/common.js"></script>
+    <link href="../static/css/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
+    <script src="../static/js/jquery.js" type="text/javascript"></script>
+    <script src="../static/js/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="../static/js/echarts.js" type="text/javascript"></script>
+    <script src="../static/js/ecSimpleTransform.min.js" type="text/javascript"></script>
+
+</head>
+<body>
+    <header>
+        <div onclick="redirect('/')">Index</div>
+        <div class="active" onclick="redirect('/dashboard')">Dashboard</div>
+        <div onclick="redirect('/data')">Data</div>
+    </header>
+    <div class="search">
+        <button style="display: none;" type="button" id="searchBtn">Search</button>
+    </div>
+    <div style="width: 100%;">
+        <div id="bar" style="margin-left:120px; margin-top: 100px; width: 600px;height:400px;float: left;"></div>
+        <div id="pie" style="margin-left:120px; margin-top: 100px; width: 600px;height:600px;float: left;"></div>
+        <div id="bar3" style="margin-left:120px; margin-top: 100px; width: 800px;height:540px;float: left;"></div>
+    </div>
+</body>
+<script type="text/javascript">
+
+    {#    execute when page loads success #}
+    $(document).ready(function () {
+        $("#searchBtn").click();
+    });
+
+    {# request backend api #}
+    $("#searchBtn").click(function () {
+        $.ajax({
+            {# backend api #}
+            url: "/data/charts",
+            type: 'get',
+            success: function (result) {
+                console.log(result);
+
+                {# parse string to json object #}
+                let dataObj = JSON.parse(result)
+
+                {# set data from backend to bat and pie chart data and reload charts #}
+                barOption.xAxis.data = dataObj.data.barData.xAxis;
+            
+        
+                barOption.series[0].data = dataObj.data.barData.series;
+                // find piechart and get one from each group
+                console.log(dataObj.data.pieData);
+                let pieData = dataObj.data.pieData;
+                console.log(pieData[0]);
+                pieData[0].children = pieData[0].children.map(i => {
+                    if (i.children.length > 1) {
+                        i.children = i.children.slice(0, Math.floor(i.children.length / 5))
+                    }
+                    return i
+                })
+                console.log(pieData);
+                pieOption.series.data = pieData
+                barChart.setOption(barOption, true);
+                pieChart.setOption(pieOption, true);
+            }
+        });
+    });
+
+    {# define 2 bar and 1 pie charts by locating its id #}
+    let barChart = echarts.init(document.getElementById('bar'));
+    let pieChart = echarts.init(document.getElementById('pie'));
+    let bar3Chart = echarts.init(document.getElementById('bar3'));
+
+    {# define first bar config options #}
+    barOption = {
+        title: {
+            text: 'NUMBER OF FOSSILS FOR EACH CLASS OF DINOSAUR '
+        },
+        {# set bar x configs#}
+        xAxis: {
+            name: 'Class of Dinosaur',
+            type: 'category',
+            nameTextStyle: {
+                padding: [0, 10, 0, 0]    //padding setting: up down left right to the origin
+            },
+            {# set name gaps value from x #}
+            nameGap: 23,
+            nameLocation: "middle", // where "name" located at x-axis
+            data: []
+        },
+        yAxis: {
+            name: 'Number of Fossils',
+            type: 'value'
+        },
+        series: [
+            {
+                name: 'cll',
+                type: 'bar',
+                data: [],
+                itemStyle: {
+                    normal: {
+                        label: {
+                            show: true, //show the value
+                            position: 'top', //position of value
+                            textStyle: {  
+                                color: '#D1DBFF',   //color of text
+                                fontSize: 14  
+                            }
+                        },
+                        //color setting
+                        color: function (params) {
+                            //define multi-color
+                            var colorList = ['#00A3E0', '#FFA100', '#ffc0cb', '#CCCCCC', '#BBFFAA', '#749f83', '#ca8622'];
+                            return colorList[params.dataIndex]
+                        }
+                    }
+                }
+            }
+        ]
+    }
+    ;
+
+    {# define first pie config options #}
+    pieOption = {
+        title: {
+            text: 'FAMILY ORDERS OF DINOSAURS',
+            textStyle: {
+                fontSize: 13,
+                align: 'center'
+            },
+            subtextStyle: {
+                align: 'center'
+            },
+        },
+        {# set pie styles #}
+        series: {
+            type: 'sunburst',
+            data: [],
+            radius: [0, '95%'],
+            sort: undefined,
+            emphasis: {
+                focus: 'ancestor'
+            },
+            levels: [
+                {},
+                {
+                    r0: '15%',
+                    r: '35%',
+                    itemStyle: {
+                        borderWidth: 2
+                    },
+                    label: {
+                        rotate: 'tangential'
+                    }
+                },
+                {
+                    r0: '35%',
+                    r: '70%',
+                    label: {
+                        align: 'right'
+                    }
+                },
+                {
+                    r0: '70%',
+                    r: '72%',
+                    label: {
+                        position: 'outside',
+                        padding: 3,
+                        silent: false
+                    },
+                    itemStyle: {
+                        borderWidth: 3
+                    }
+                }
+            ]
+        }
+    };
+
+    {# make config work #}
+    barChart.setOption(barOption);
+    pieChart.setOption(pieOption);
+
+    {# define second bar config options #}
+
+    bar3Option = {
+        title: {
+            text: 'TIMELINE DINOSAUR FAMILY EXISTED'
+        },
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'shadow'
+            },
+            formatter: function (params) {
+                let tar;
+                if (params[1].value !== '-') {
+                    tar = params[1];
+                } else {
+                    tar = params[0];
+                }
+                return tar.name + '<br/>' + tar.seriesName + ' : ' + Math.abs(tar.value);
+            }
+        },
+        legend: {
+            data: []
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        yAxis: {
+            name: 'category',
+            type: 'category',
+            data: ['Theropods', 'Sauropods', 'Stegosaurs', 'Ankylosaurs', 'Ornithopods', 'Ceratopsians', 'Pachycephalosaurs'],
+        },
+        xAxis: {
+            name: 'Years MA (BC)',
+            nameTextStyle: {
+                padding: [0, 20, 0, 0]    // up down left right position to the origin
+            },
+            axisLabel : {
+                formatter: (value) => Math.abs(value)
+            },
+            nameGap: 23,
+            nameLocation: "middle", // name position located at x-axis
+            type: 'value',
+        },
+        series: [
+            {
+                name: 'Default',
+                type: 'bar',
+                stack: 'Total',
+                itemStyle: {
+                    borderColor: 'transparent',
+                    color: 'transparent'
+                },
+                emphasis: {
+                    itemStyle: {
+                        borderColor: 'transparent',
+                        color: 'transparent'
+                    }
+                },
+                data: [0, -66, -100, -66, -66, -66, -66]
+            },
+            {
+                name: 'Years Existed (MA)',
+                type: 'bar',
+                stack: 'Total',
+                label: {
+                    show: true,
+                    position: 'top',
+                    formatter: (params) => {
+                        return Math.abs(params.data)
+                    },
+                },
+                data: [-231.4, -228, -169, -68, -164, -161, -70],
+                itemStyle: {
+                    normal: {
+                        //color setting
+                        color: function (params) {
+                            //multiple color setting
+                            var colorList = ['#00A3E0', '#FFA100', '#ffc0cb', '#CCCCCC', '#BBFFAA', '#749f83', '#ca8622'];
+                            return colorList[params.dataIndex]
+                        }
+                    }
+                }
+            }
+        ]
+    };
+    bar3Chart.setOption(bar3Option);
+
+</script>
+</html>
