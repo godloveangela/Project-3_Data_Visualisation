@@ -32693,16 +32693,7 @@
         count++;
         duplicationMap.set(dimOriginalName, count);
       }
-    } // ??? TODO
-    // Originally detect dimCount by data[0]. Should we
-    // optimize it to only by sysDims and dimensions and encode.
-    // So only necessary dims will be initialized.
-    // But
-    // (1) custom series should be considered. where other dims
-    // may be visited.
-    // (2) sometimes user need to calcualte bubble size or use visualMap
-    // on other dimensions besides coordSys needed.
-    // So, dims that is not used by system, should be shared in data store?
+    } 
 
 
     function getDimCount(source, sysDims, dimsDef, optDimCount) {
@@ -33288,14 +33279,7 @@
 
         if (!isString(category) && !needCollect) {
           return category;
-        } // Optimize for the scenario:
-        // category is ['2012-01-01', '2012-01-02', ...], where the input
-        // data has been ensured not duplicate and is large data.
-        // Notice, if a dataset dimension provide categroies, usually echarts
-        // should remove duplication except user tell echarts dont do that
-        // (set axis.deduplication = false), because echarts do not know whether
-        // the values in the category dimension has duplication (consider the
-        // parallel-aqi example)
+        } 
 
 
         if (needCollect && !this._deduplication) {
@@ -33439,7 +33423,7 @@
 
         _this.type = 'ordinal';
 
-        var ordinalMeta = _this.getSetting('ordinalMeta'); // Caution: Should not use instanceof, consider ec-extensions using
+        var ordinalMeta = _this.getSetting('ordinalMeta'); 
         // import approach to get OrdinalMeta class.
 
 
@@ -34600,54 +34584,7 @@
         case 'millisecond':
           return isSameMilliSecond();
       }
-    } // const primaryUnitGetters = {
-    //     year: fullYearGetterName(),
-    //     month: monthGetterName(),
-    //     day: dateGetterName(),
-    //     hour: hoursGetterName(),
-    //     minute: minutesGetterName(),
-    //     second: secondsGetterName(),
-    //     millisecond: millisecondsGetterName()
-    // };
-    // const primaryUnitUTCGetters = {
-    //     year: fullYearGetterName(true),
-    //     month: monthGetterName(true),
-    //     day: dateGetterName(true),
-    //     hour: hoursGetterName(true),
-    //     minute: minutesGetterName(true),
-    //     second: secondsGetterName(true),
-    //     millisecond: millisecondsGetterName(true)
-    // };
-    // function moveTick(date: Date, unitName: TimeUnit, step: number, isUTC: boolean) {
-    //     step = step || 1;
-    //     switch (getPrimaryTimeUnit(unitName)) {
-    //         case 'year':
-    //             date[fullYearSetterName(isUTC)](date[fullYearGetterName(isUTC)]() + step);
-    //             break;
-    //         case 'month':
-    //             date[monthSetterName(isUTC)](date[monthGetterName(isUTC)]() + step);
-    //             break;
-    //         case 'day':
-    //             date[dateSetterName(isUTC)](date[dateGetterName(isUTC)]() + step);
-    //             break;
-    //         case 'hour':
-    //             date[hoursSetterName(isUTC)](date[hoursGetterName(isUTC)]() + step);
-    //             break;
-    //         case 'minute':
-    //             date[minutesSetterName(isUTC)](date[minutesGetterName(isUTC)]() + step);
-    //             break;
-    //         case 'second':
-    //             date[secondsSetterName(isUTC)](date[secondsGetterName(isUTC)]() + step);
-    //             break;
-    //         case 'millisecond':
-    //             date[millisecondsSetterName(isUTC)](date[millisecondsGetterName(isUTC)]() + step);
-    //             break;
-    //     }
-    //     return date.getTime();
-    // }
-    // const DATE_INTERVALS = [[8, 7.5], [4, 3.5], [2, 1.5]];
-    // const MONTH_INTERVALS = [[6, 5.5], [3, 2.5], [2, 1.5]];
-    // const MINUTES_SECONDS_INTERVALS = [[30, 30], [20, 20], [15, 15], [10, 10], [5, 5], [2, 2]];
+    } 
 
 
     function getDateInterval(approxInterval, daysInMonth) {
@@ -46194,13 +46131,13 @@
         z: 2,
         legendHoverLink: true,
         symbolSize: 10,
-        // symbolRotate: null,  // 图形旋转控制
+        // symbolRotate: null,  // spining control 
         large: false,
         // Available when large is true
         largeThreshold: 2000,
         // cursor: null,
         itemStyle: {
-          opacity: 0.8 // color: 各异
+          opacity: 0.8 // color
 
         },
         emphasis: {
@@ -89228,10 +89165,10 @@
             if (stride_1 > 0 && index % stride_1) {
               thisCoord_1 += step_1;
               return;
-            } // FIXME
+            } 
             // Should consider axis.min/axis.max when drawing dataShadow.
-            // FIXME
-            // 应该使用统一的空判断？还是在list里进行空判断？
+            
+            
 
 
             var isEmpty = value == null || isNaN(value) || value === ''; // See #4235.
