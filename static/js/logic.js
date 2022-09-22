@@ -68,7 +68,7 @@ var icons = {
   })
 };
 
-d3.json('https://paleobiodb.org/data1.2/specs/list.json?datainfo&rowcount&base_name=Saurischia,Ornithischia&max_ma=251&min_ma=66&show=class,coords,paleoloc').then(res => {
+d3.json('https://raw.githubusercontent.com/godloveangela/Project-3_Data_Visualisation/main/Data/dino_data.json').then(res => {
     const dinosaurList = res.records
     const dinosarurTypeArr = []
   

@@ -16336,95 +16336,95 @@
      */
     var langZH = {
       time: {
-        month: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
-        monthAbbr: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
-        dayOfWeek: ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'],
-        dayOfWeekAbbr: ['日', '一', '二', '三', '四', '五', '六']
+        month: ['January', 'Februry', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+        monthAbbr: ['January', 'Februry', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+        dayOfWeek: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+        dayOfWeekAbbr: ['Day', 'One', 'Two', 'Three', 'Four', 'Five', 'Six']
       },
       legend: {
         selector: {
-          all: '全选',
-          inverse: '反选'
+          all: 'Select all',
+          inverse: 'Inverse select'
         }
       },
       toolbox: {
         brush: {
           title: {
-            rect: '矩形选择',
-            polygon: '圈选',
-            lineX: '横向选择',
-            lineY: '纵向选择',
-            keep: '保持选择',
-            clear: '清除选择'
+            rect: 'rectangle selection',
+            polygon: 'polygon selection',
+            lineX: 'line X-axis selection',
+            lineY: 'line Y-axis selection',
+            keep: 'keep selection',
+            clear: 'clear selection'
           }
         },
         dataView: {
-          title: '数据视图',
-          lang: ['数据视图', '关闭', '刷新']
+          title: 'data visualization',
+          lang: ['data visualization', 'close', 'renew']
         },
         dataZoom: {
           title: {
-            zoom: '区域缩放',
-            back: '区域缩放还原'
+            zoom: 'area zoom',
+            back: 'area zoom back'
           }
         },
         magicType: {
           title: {
-            line: '切换为折线图',
-            bar: '切换为柱状图',
-            stack: '切换为堆叠',
-            tiled: '切换为平铺'
+            line: 'switch to line chart',
+            bar: 'switch to bar chart',
+            stack: 'switch to stack chart',
+            tiled: 'switch to tiled'
           }
         },
         restore: {
-          title: '还原'
+          title: 'restore'
         },
         saveAsImage: {
-          title: '保存为图片',
-          lang: ['右键另存为图片']
+          title: 'save as picture',
+          lang: ['right click to save picture']
         }
       },
       series: {
         typeNames: {
-          pie: '饼图',
-          bar: '柱状图',
-          line: '折线图',
-          scatter: '散点图',
-          effectScatter: '涟漪散点图',
-          radar: '雷达图',
-          tree: '树图',
-          treemap: '矩形树图',
-          boxplot: '箱型图',
-          candlestick: 'K线图',
-          k: 'K线图',
-          heatmap: '热力图',
-          map: '地图',
-          parallel: '平行坐标图',
-          lines: '线图',
-          graph: '关系图',
-          sankey: '桑基图',
-          funnel: '漏斗图',
-          gauge: '仪表盘图',
-          pictorialBar: '象形柱图',
-          themeRiver: '主题河流图',
-          sunburst: '旭日图'
+          pie: 'pie chart',
+          bar: 'bar chart',
+          line: 'line chart',
+          scatter: 'scatter chart',
+          effectScatter: 'effect scatter chart',
+          radar: 'radar chart',
+          tree: 'tree diagram',
+          treemap: 'rectangle treemap',
+          boxplot: 'boxplot',
+          candlestick: 'candlestick',
+          k: 'K-line map',
+          heatmap: 'heatmap',
+          map: 'mao',
+          parallel: 'parallel chart',
+          lines: 'line chart',
+          graph: 'relation graph',
+          sankey: 'sankey chart',
+          funnel: 'funnel chart',
+          gauge: 'gauge chart',
+          pictorialBar: 'pictorial bar cahrt',
+          themeRiver: 'themeRiver chart',
+          sunburst: 'sunburst'
         }
       },
       aria: {
         general: {
-          withTitle: '这是一个关于“{title}”的图表。',
-          withoutTitle: '这是一个图表，'
+          withTitle: 'This is a chart about “{title}”',
+          withoutTitle: 'This is a chart'
         },
         series: {
           single: {
             prefix: '',
-            withName: '图表类型是{seriesType}，表示{seriesName}。',
-            withoutName: '图表类型是{seriesType}。'
+            withName: 'Chart type is{seriesType}, illustrates{seriesName} ',
+            withoutName: 'Chart type is {seriesType}。'
           },
           multiple: {
-            prefix: '它由{seriesCount}个图表系列组成。',
-            withName: '第{seriesId}个系列是一个表示{seriesName}的{seriesType}，',
-            withoutName: '第{seriesId}个系列是一个{seriesType}，',
+            prefix: 'It is consisted by {seriesCount} of charts',
+            withName: 'The {seriesId} of the series presented {seriesType} of {seriesName}.',
+            withoutName: 'The {seriesId} of series is a {seriesType} type chart',
             separator: {
               middle: '；',
               end: '。'
@@ -16432,9 +16432,9 @@
           }
         },
         data: {
-          allData: '其数据是——',
-          partialData: '其中，前{displayCnt}项是——',
-          withName: '{name}的数据是{value}',
+          allData: 'all the data is——',
+          partialData: 'partial data :{displayCnt} is——',
+          withName: '{name} value is {value}',
           withoutName: '{value}',
           separator: {
             middle: '，',
@@ -37022,8 +37022,8 @@
 
         switch (cmd) {
           case CMD$3.M:
-            // moveTo 命令重新创建一个新的 subpath, 并且更新新的起点
-            // 在 closePath 的时候使用
+            // moveTo command to create a new subpath, renew the start point 
+            // select it in the  closePath 
             x0 = data[i++];
             y0 = data[i++];
             xi = x0;
@@ -37049,24 +37049,24 @@
             break;
 
           case CMD$3.A:
-            // TODO Arc 判断的开销比较大
+            // TODO Arc decide
             var cx = data[i++];
             var cy = data[i++];
             var rx = data[i++];
             var ry = data[i++];
             var theta = data[i++];
-            var dTheta = data[i++]; // TODO Arc 旋转
+            var dTheta = data[i++]; // TODO Arc spin
 
             i += 1;
             var anticlockwise = !!(1 - data[i++]);
             x1 = Math.cos(theta) * rx + cx;
-            y1 = Math.sin(theta) * ry + cy; // 不是直接使用 arc 命令
+            y1 = Math.sin(theta) * ry + cy; 
 
             if (i <= 1) {
-              // 第一个命令起点还未定义
+              
               x0 = x1;
               y0 = y1;
-            } // zr 使用scale来模拟椭圆, 这里也对x做一定的缩放
+            } 
 
 
             var _x = (x - cx) * ry / rx + cx;
@@ -45949,22 +45949,22 @@
         z: 2,
         legendHoverLink: true,
         colorBy: 'data',
-        // 默认全局居中
+        // auto central position
         center: ['50%', '50%'],
         radius: [0, '75%'],
-        // 默认顺时针
+        // auto clockwise
         clockwise: true,
         startAngle: 90,
-        // 最小角度改为0
+        // smallest angel is 0
         minAngle: 0,
         // If the angle of a sector less than `minShowLabelAngle`,
         // the label will not be displayed.
         minShowLabelAngle: 0,
-        // 选中时扇区偏移量
+        // the percentage of the angle shifted from the center
         selectedOffset: 10,
-        // 选择模式，默认关闭，可选single，multiple
+        // select the auto，can select single，multiple
         // selectedMode: false,
-        // 南丁格尔玫瑰图模式，'radius'（半径） | 'area'（面积）
+        // 南丁格尔玫瑰图模式，'radius' | 'area'
         // roseType: null,
         percentPrecision: 2,
         // If still show when all data zero.
@@ -45992,23 +45992,23 @@
           // Works only position is 'outer' and alignTo is not 'edge'.
           bleedMargin: 10,
           // Distance between text and label line.
-          distanceToLabelLine: 5 // formatter: 标签文本格式器，同Tooltip.formatter，不支持异步回调
-          // 默认使用全局文本样式，详见TEXTSTYLE
-          // distance: 当position为inner时有效，为label位置到圆心的距离与圆半径(环状图为内外半径和)的比例系数
+          distanceToLabelLine: 5 // formatter
+          // auto select format , see details from TEXTSTYLE
+          
 
         },
         // Enabled when label.normal.position is 'outer'
         labelLine: {
           show: true,
-          // 引导线两段中的第一段长度
+          // the lenth of first lableline
           length: 15,
-          // 引导线两段中的第二段长度
+          // the lenth of second lableline
           length2: 15,
           smooth: false,
           minTurnAngle: 90,
           maxSurfaceAngle: 90,
           lineStyle: {
-            // color: 各异,
+            // color: multi-random,
             width: 1,
             type: 'solid'
           }
@@ -52744,9 +52744,8 @@
       MapSeries.dependencies = ['geo'];
       MapSeries.layoutMode = 'box';
       MapSeries.defaultOption = {
-        // 一级层叠
         // zlevel: 0,
-        // 二级层叠
+        // zlevel:2
         z: 2,
         coordinateSystem: 'geo',
         // map should be explicitly specified since ec3.
@@ -56725,8 +56724,7 @@
         var containerGroup = this._containerGroup;
 
         if (!containerGroup) {
-          // FIXME
-          // 加一层containerGroup是为了clip，但是现在clip功能并没有实现。
+        
           containerGroup = this._containerGroup = new Group$1();
 
           this._initEvents(containerGroup);
@@ -62084,15 +62082,15 @@
         startAngle: 225,
         endAngle: -45,
         clockwise: true,
-        // 最小值
+        // min value
         min: 0,
-        // 最大值
+        // max value
         max: 100,
-        // 分割段数，默认为10
+        // split segement, auto 10
         splitNumber: 10,
-        // 坐标轴线
+        // axis line
         axisLine: {
-          // 默认显示，属性show控制显示与否
+          // auto show, attribute show control display or not
           show: true,
           roundCap: false,
           lineStyle: {
@@ -62100,39 +62098,39 @@
             width: 10
           }
         },
-        // 坐标轴线
+        // line-axis
         progress: {
-          // 默认显示，属性show控制显示与否
+          // auto show, attribute show control display or not
           show: false,
           overlap: true,
           width: 10,
           roundCap: false,
           clip: true
         },
-        // 分隔线
+        // divde line
         splitLine: {
-          // 默认显示，属性show控制显示与否
+          // auto show, attribute show control display or not
           show: true,
-          // 属性length控制线长
+          // attribute length to control the line
           length: 10,
           distance: 10,
-          // 属性lineStyle（详见lineStyle）控制线条样式
+          // attribute lineStyle（see lineStyle）
           lineStyle: {
             color: '#63677A',
             width: 3,
             type: 'solid'
           }
         },
-        // 坐标轴小标记
+        // axis tick 
         axisTick: {
-          // 属性show控制显示与否，默认不显示
+          // auto show, attribute show control display or not, auto not to display
           show: true,
-          // 每份split细分多少段
+          // how many segements will be to splited to
           splitNumber: 5,
-          // 属性length控制线长
+          // attribute: length control the line length
           length: 6,
           distance: 10,
-          // 属性lineStyle控制线条样式
+          // attribute: lineStyle control the line style
           lineStyle: {
             color: '#63677A',
             width: 1,
@@ -62170,9 +62168,9 @@
         },
         title: {
           show: true,
-          // x, y，单位px
+          // x, y，unit px
           offsetCenter: [0, '20%'],
-          // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+          // attribute auto textstyle，详见TEXTSTYLE
           color: '#464646',
           fontSize: 16,
           valueAnimation: false
@@ -62185,10 +62183,10 @@
           width: 100,
           height: null,
           padding: [5, 10],
-          // x, y，单位px
+          // x, y，unit px
           offsetCenter: [0, '40%'],
           // formatter: null,
-          // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+          // attribute auto textstyle，详见TEXTSTYLE
           color: '#464646',
           fontSize: 30,
           fontWeight: 'bold',
@@ -62432,7 +62430,7 @@
 
       FunnelSeriesModel.type = 'series.funnel';
       FunnelSeriesModel.defaultOption = {
-        // zlevel: 0,                  // 一级层叠
+        // zlevel: 0,                 
         z: 2,
         legendHoverLink: true,
         colorBy: 'data',
@@ -62442,7 +62440,7 @@
         bottom: 60,
         // width: {totalWidth} - left - right,
         // height: {totalHeight} - top - bottom,
-        // 默认取数据最小最大值
+        // auto select the min/max data value
         // min: 0,
         // max: 100,
         minSize: '0%',
@@ -67771,9 +67769,9 @@
         // polarIndex: 0,
         // Geo coordinate system
         // geoIndex: 0,
-        // symbol: null,        // 图形类型
-        symbolSize: 10 // 图形大小，半宽（半径）参数，当图形为方向或菱形则总宽度为symbolSize * 2
-        // symbolRotate: null,  // 图形旋转控制
+        // symbol: null,        // chart type
+        symbolSize: 10 // chart size，radius parameter,
+        // symbolRotate: null,  // chhart spin control
         // itemStyle: {
         //     opacity: 1
         // }
@@ -77555,7 +77553,7 @@
             // case-sensitive
             localeModel = getLocaleModel(nameMap) || localeModel;
           } // PENDING
-          // for ZH locale, original form is `一月` but current form is `1月`
+          // for ZH locale, original form is `Janurary` but current form is `Janurary`
 
 
           nameMap = localeModel.get(['time', 'monthAbbr']) || [];
@@ -84519,7 +84517,7 @@
        */
 
       TimelineModel.defaultOption = {
-        // zlevel: 0,                  // 一级层叠
+        // zlevel: 0,                  
         z: 4,
         show: true,
         axisType: 'time',
@@ -86033,7 +86031,7 @@
             }
 
             if (isFunction(symbolSize)) {
-              // FIXME 这里不兼容 ECharts 2.x，2.x 貌似参数是整个数据？
+              
               symbolSize = symbolSize(rawIdx, dataParams);
             }
 
@@ -89753,8 +89751,7 @@
     }(DataZoomView);
 
     function getOtherDim(thisDim) {
-      // FIXME
-      // 这个逻辑和getOtherAxis里一致，但是写在这里是否不好
+     
       var map = {
         x: 'y',
         y: 'x',
@@ -90236,11 +90233,11 @@
         inactiveColor: '#aaa',
         borderWidth: 0,
         padding: 5,
-        // 接受数组分别设定上右下左边距，同css
+        
         textGap: 10,
         precision: 0,
         textStyle: {
-          color: '#333' // 值域文字颜色
+          color: '#333' 
 
         }
       };
@@ -91968,8 +91965,8 @@
       categories: function (outPieceList) {
         var thisOption = this.option;
         each(thisOption.categories, function (cate) {
-          // FIXME category模式也使用pieceList，但在visualMapping中不是使用pieceList。
-          // 是否改一致。
+          // FIXME category is same as pieceList
+       
           outPieceList.push({
             text: this.formatValueText(cate, true),
             value: cate
@@ -92471,7 +92468,7 @@
       }
 
       function getSeriesTypeName(type) {
-        return ecModel.getLocaleModel().get(['series', 'typeNames'])[type] || '自定义图';
+        return ecModel.getLocaleModel().get(['series', 'typeNames'])[type] || 'auto define pic';
       }
     }
 
