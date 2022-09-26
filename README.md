@@ -1,7 +1,7 @@
 
 # Project 3 Data Visualization: Jurassic Project
 
-Image of chart:![Jurassic Project](Images/pic1.png)
+Image of full html page:[Jurassic Project](Images/pic1.png)
 
 ### Background and Context:
 
