@@ -42,7 +42,7 @@ The Flask API was created to call upon data from our database
 We used Graphs from the Echart.js library for visualization like pie chart
 The chart groups the dinosaurs by Genus and shows a distribution of how many fossils of each Genus have been found
 We showed this chart to group each Genus into the 3 Major groups that were mentioned previously
-Image of chart![Family Order of Dinosaurs](Images/pic2. PNG)
+Image of chart![Family Order of Dinosaurs](Images/pic2.png)
 
 
 ## Timeline Bar chart:
@@ -50,7 +50,7 @@ We used a Horizontal Bar Graph shows the timeline when various dinosaur family e
 The graph shows the sudden mass extinction of three-quarters of the plant and animal species on Earth, approximately 66 million years ago.
 Theropods evolved to become modern day birds which is why they are present after the major extinction event.
 The Sauropods were the first known family of dinosaur which included the Brontosaurus and Brachiosaurus.
-Image of chart![Timeline Dinosaur Family Existed](Images/pic3.PNG)
+Image of chart![Timeline Dinosaur Family Existed](Images/pic3.png)
 
 ## Worldmap of Dinosaur Fossils
 We used Mapbox ploted the world map where the dinosaur fossils found by the data of latitude and longitute with its genus and classification
