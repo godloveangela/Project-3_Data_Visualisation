@@ -53,7 +53,7 @@ The Sauropods were the first known family of dinosaur which included the Brontos
 Image of chart: ![Timeline Dinosaur Family Existed](Images/pic3.png)
 
 ## Worldmap of Dinosaur Fossils
-We used ploted the world map where the dinosaur fossils found by the data of latitude and longitute with its genus and classification
+We used Mapbox ploted the world map where the dinosaur fossils found by the data of latitude and longitute with its genus and classification
 In the map, we also have the popup providing details of its generation of class , genus, existing time in MA and the found location 
 
 ## The visualization process workflow consists of two parts: 
@@ -65,6 +65,6 @@ Front end: At the front end: we imported Apache E-charts library, to help drawin
 
 ### Heroku Development:
 We did the exercise of Heroku and installed the application within the size limitation. 
-The link can be accessed by: ttps://dinosaurmap.herokuapp.com/
+The link can be accessed by: https://dinosaurmap.herokuapp.com/
 
 
